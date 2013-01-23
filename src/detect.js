@@ -19,6 +19,7 @@
       playbook = ua.match(/PlayBook/),
       chrome = ua.match(/Chrome\/([\d.]+)/) || ua.match(/CriOS\/([\d.]+)/),
       firefox = ua.match(/Firefox\/([\d.]+)/)
+      operamini = ua.match(/Opera Mini\/([\d.]+)/)
 
     // Todo: clean this up with a better OS/browser seperation:
     // - discern (more) between multiple browsers on android
@@ -42,9 +43,10 @@
     if (!silk && os.android && ua.match(/Kindle Fire/)) browser.silk = true
     if (chrome) browser.chrome = true, browser.version = chrome[1]
     if (firefox) browser.firefox = true, browser.version = firefox[1]
+    if (operamini) browser.firefox = true, browser.version = firefox[1]
 
     os.tablet = !!(ipad || playbook || (android && !ua.match(/Mobile/)) || (firefox && ua.match(/Tablet/)))
-    os.phone  = !!(!os.tablet && (android || iphone || webos || blackberry || bb10 || chrome || firefox))
+    os.phone  = !!(!os.tablet && (android || iphone || webos || blackberry || bb10 || chrome || firefox || operamini))
   }
 
   detect.call($, navigator.userAgent)
