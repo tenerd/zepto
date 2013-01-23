@@ -18,7 +18,7 @@
       rimtabletos = ua.match(/(RIM\sTablet\sOS)\s([\d.]+)/),
       playbook = ua.match(/PlayBook/),
       chrome = ua.match(/Chrome\/([\d.]+)/) || ua.match(/CriOS\/([\d.]+)/),
-      firefox = ua.match(/Firefox\/([\d.]+)/)
+      firefox = ua.match(/Firefox\/([\d.]+)/),
       operamini = ua.match(/Opera Mini\/([\d.]+)/)
 
     // Todo: clean this up with a better OS/browser seperation:
